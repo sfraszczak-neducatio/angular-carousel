@@ -1,6 +1,6 @@
 /**
  * Angular Carousel - Mobile friendly touch carousel for AngularJS
- * @version v0.3.10 - 2015-02-11
+ * @version v0.3.10 - 2015-03-11
  * @link http://revolunet.github.com/angular-carousel
  * @author Julien Bouquillon <julien@revolunet.com>
  * @license MIT License, http://www.opensource.org/licenses/MIT
@@ -293,14 +293,14 @@ angular.module('angular-carousel').run(['$templateCache', function($templateCach
                             mouseUpBound = false,
                             locked = false;
 
-                        $swipe.bind(iElement, {
-                            start: swipeStart,
-                            move: swipeMove,
-                            end: swipeEnd,
-                            cancel: function(event) {
-                                swipeEnd({}, event);
-                            }
-                        });
+                        // $swipe.bind(iElement, {
+                        //     start: swipeStart,
+                        //     move: swipeMove,
+                        //     end: swipeEnd,
+                        //     cancel: function(event) {
+                        //         swipeEnd({}, event);
+                        //     }
+                        // });
 
                         function getSlidesDOM() {
                             return iElement[0].querySelectorAll('ul[rn-carousel] > li');
@@ -485,7 +485,7 @@ angular.module('angular-carousel').run(['$templateCache', function($templateCach
                                 scope.$parent.$watch(indexModel, function(newValue, oldValue) {
 
                                     if (newValue !== undefined && newValue !== null) {
-                                        if (currentSlides && newValue >= currentSlides.length) {
+                                        if (currentSlides && currentSlides.length > 0 && newValue >= currentSlides.length) {
                                             newValue = currentSlides.length - 1;
                                             updateParentIndex(newValue);
                                         } else if (currentSlides && newValue < 0) {

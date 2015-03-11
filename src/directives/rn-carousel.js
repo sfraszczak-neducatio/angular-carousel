@@ -214,14 +214,14 @@
                             mouseUpBound = false,
                             locked = false;
 
-                        $swipe.bind(iElement, {
-                            start: swipeStart,
-                            move: swipeMove,
-                            end: swipeEnd,
-                            cancel: function(event) {
-                                swipeEnd({}, event);
-                            }
-                        });
+                        // $swipe.bind(iElement, {
+                        //     start: swipeStart,
+                        //     move: swipeMove,
+                        //     end: swipeEnd,
+                        //     cancel: function(event) {
+                        //         swipeEnd({}, event);
+                        //     }
+                        // });
 
                         function getSlidesDOM() {
                             return iElement[0].querySelectorAll('ul[rn-carousel] > li');
